@@ -1,0 +1,15 @@
+<%- include('header') %> <!-- Bao gồm phần header -->
+
+<div class="container">
+    <h1>Chi tiết người dùng</h1>
+    <p><strong>Tên đăng nhập:</strong> <%= user.username %></p>
+    <p><strong>Họ tên:</strong> <%= user.fullname %></p>
+    <p><strong>Địa chỉ:</strong> <%= user.address %></p>
+    <p><strong>Giới tính:</strong> <%= user.sex %></p>
+    <p><strong>Email:</strong> <%= user.email %></p>
+
+    <a href="/users" class="btn btn-primary">Quay lại danh sách</a>
+    <a href="/users/edit/<%= user.id %>" class="btn btn-warning">Sửa</a>
+</div>
+
+<%- include('footer') %> <!-- Bao gồm phần footer -->

@@ -1,0 +1,40 @@
+<%- include('header') %> <!-- Bao gồm phần header -->
+
+<div class="container">
+    <h1>Danh sách người dùng</h1>
+    <a href="/users/add" class="btn btn-primary">Thêm người dùng mới</a>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên đăng nhập</th>
+                <th>Họ tên</th>
+                <th>Giới tính</th>
+                <th>Địa chỉ</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.fullname %></td>
+                    <td><%= user.sex %></td>           <!-- Hiển thị giới tính -->
+                    <td><%= user.address %></td>        <!-- Hiển thị địa chỉ -->
+                    <td>
+                        <a href="/users/<%= user.id %>" class="btn btn-info">Xem</a>
+                        <a href="/users/edit/<%= user.id %>" class="btn btn-warning">Sửa</a>
+                        <a href="/users/delete/<%= user.id %>" class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('footer') %> <!-- Bao gồm phần footer -->
+<!-- Liên kết tới file CSS -->
+<link rel="stylesheet" href="/styles/style.css">
+<!-- Liên kết JavaScript của Bootstrap 5 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
