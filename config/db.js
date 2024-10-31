@@ -1,10 +1,14 @@
+// config/db.js
 import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Đọc các biến môi trường từ .env
 
 const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',          // Tên người dùng mặc định trong XAMPP là 'root'
-    password: '',          // Mật khẩu mặc định là trống
-    database: 'ltw', // Tên cơ sở dữ liệu bạn đã tạo
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'ltw',
 });
 
 export default db;
